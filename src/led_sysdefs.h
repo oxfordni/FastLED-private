@@ -5,7 +5,7 @@
 
 #include "fastled_config.h"
 
-#if defined(NRF51) || defined(__RFduino__) || defined (__Simblee__)
+#if defined(NRF51) || defined(__RFduino__) || defined(__Simblee__)
 #include "platforms/arm/nrf51/led_sysdefs_arm_nrf51.h"
 #elif defined(NRF52_SERIES)
 #include "platforms/arm/nrf52/led_sysdefs_arm_nrf52.h"
@@ -26,9 +26,12 @@
 #include "platforms/arm/sam/led_sysdefs_arm_sam.h"
 #elif defined(STM32F10X_MD) || defined(__STM32F1__) || defined(STM32F2XX)
 #include "platforms/arm/stm32/led_sysdefs_arm_stm32.h"
-#elif defined(__SAMD21G18A__) || defined(__SAMD21J18A__) || defined(__SAMD21E17A__) || defined(__SAMD21E18A__) 
+#elif defined(__SAMD21G17A__) || defined(__SAMD21G18A__) ||                    \
+    defined(__SAMD21J18A__) || defined(__SAMD21E17A__) ||                      \
+    defined(__SAMD21E18A__)
 #include "platforms/arm/d21/led_sysdefs_arm_d21.h"
-#elif defined(__SAMD51G19A__) || defined(__SAMD51J19A__) || defined(__SAMD51P19A__)
+#elif defined(__SAMD51G19A__) || defined(__SAMD51J19A__) ||                    \
+    defined(__SAMD51P19A__)
 #include "platforms/arm/d51/led_sysdefs_arm_d51.h"
 #elif defined(ESP8266)
 #include "platforms/esp/8266/led_sysdefs_esp8266.h"
@@ -38,7 +41,8 @@
 // AVR platforms
 #include "platforms/avr/led_sysdefs_avr.h"
 #elif defined(ARDUINO_ARCH_APOLLO3)
-// Apollo3 platforms (e.g. the Ambiq Micro Apollo3 Blue as used by the SparkFun Artemis platforms)
+// Apollo3 platforms (e.g. the Ambiq Micro Apollo3 Blue as used by the SparkFun
+// Artemis platforms)
 #include "platforms/apollo3/led_sysdefs_apollo3.h"
 #else
 //
@@ -52,7 +56,8 @@
 //
 // If this platform is a new microcontroller, see "PORTING.md".
 //
-#error "This platform isn't recognized by FastLED... yet.  See comments in FastLED/led_sysdefs.h for options."
+#error                                                                         \
+    "This platform isn't recognized by FastLED... yet.  See comments in FastLED/led_sysdefs.h for options."
 #endif
 
 #ifndef FASTLED_NAMESPACE_BEGIN
@@ -61,11 +66,12 @@
 #define FASTLED_USING_NAMESPACE
 #endif
 
-// Arduino.h needed for convenience functions digitalPinToPort/BitMask/portOutputRegister and the pinMode methods.
+// Arduino.h needed for convenience functions
+// digitalPinToPort/BitMask/portOutputRegister and the pinMode methods.
 #ifdef ARDUINO
 #include <Arduino.h>
 #endif
 
-#define CLKS_PER_US (F_CPU/1000000)
+#define CLKS_PER_US (F_CPU / 1000000)
 
 #endif

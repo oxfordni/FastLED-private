@@ -1,3 +1,7 @@
+FastLED 3.4.99
+=============
+* Added support for SAMD21G17A
+
 FastLED 3.4.0
 =============
 
